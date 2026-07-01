@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050506">
+  <title>Roster · Bombers Fastpitch</title>
+  <link rel="icon" href="../assets/img/bombers-fastpitch-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/team-primetime.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+  <style>
+    .roster-cover-header {
+      position: relative;
+      overflow: hidden;
+      padding: 24px 24px 0;
+      background:
+        radial-gradient(circle at 82% 24%, rgba(7,93,255,.34), transparent 30%),
+        radial-gradient(circle at 14% 50%, rgba(102,167,255,.16), transparent 32%),
+        linear-gradient(135deg,#02040A 0%,#07111F 45%,#001A4D 100%);
+      border-bottom: 3px solid #075DFF;
+    }
+    .roster-cover-header:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,.025) 1px, transparent 1px),
+        repeating-linear-gradient(112deg, rgba(7,93,255,.07) 0, rgba(7,93,255,.07) 1px, transparent 1px, transparent 10px);
+      background-size: 54px 54px, 54px 54px, auto;
+      opacity: .82;
+    }
+    .roster-cover-card {
+      position: relative;
+      z-index: 1;
+      width: min(1220px, 100%);
+      margin: 0 auto;
+      border: 2px solid rgba(7,93,255,.82);
+      background: #02040A;
+      box-shadow: 0 22px 70px rgba(0,0,0,.55), 0 0 42px rgba(7,93,255,.30);
+    }
+    .roster-cover-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 1;
+      object-fit: cover;
+      background: #02040A;
+    }
+    .roster-cover-fallback {
+      display: none;
+      min-height: 360px;
+      place-items: center;
+      padding: 44px 22px;
+      text-align: center;
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(7,93,255,.26), transparent 42%),
+        linear-gradient(145deg,#02040A,#07111F,#001A4D);
+    }
+    .roster-cover-fallback strong {
+      display: block;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(44px, 8vw, 86px);
+      line-height: .9;
+      text-transform: uppercase;
+      text-shadow: 0 0 42px rgba(7,93,255,.7);
+    }
+    .roster-cover-fallback span {
+      display: block;
+      margin-top: 16px;
+      color: #BBD6FF;
+      font-family: var(--display);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .roster-cover-card.missing-cover .roster-cover-image { display: none; }
+    .roster-cover-card.missing-cover .roster-cover-fallback { display: grid; }
+    .roster-cover-strip {
+      position: relative;
+      z-index: 1;
+      margin: 0 -24px;
+      background: linear-gradient(90deg,#00164A 0%,#075DFF 45%,#00164A 100%);
+      border-top: 2px solid rgba(102,167,255,.45);
+      box-shadow: 0 0 28px rgba(7,93,255,.28);
+    }
+    .roster-cover-strip p {
+      margin: 0;
+      padding: 16px 18px;
+      text-align: center;
+      color: #fff;
+      font-family: var(--display);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+    [data-site-theme="light"] .roster-cover-header {
+      background:
+        radial-gradient(circle at 82% 24%, rgba(7,93,255,.16), transparent 30%),
+        radial-gradient(circle at 14% 50%, rgba(102,167,255,.16), transparent 32%),
+        linear-gradient(135deg,#FFFFFF 0%,#EAF2FF 55%,#D8E7FF 100%);
+    }
+    @media(max-width: 720px) {
+      .roster-cover-header { padding: 14px 12px 0; }
+      .roster-cover-strip { margin: 0 -12px; }
+      .roster-cover-strip p { font-size: 9px; letter-spacing: 1px; padding: 13px 10px; }
+      .roster-cover-fallback { min-height: 220px; }
+    }
+  </style>
+</head>
+<body class="bombers-page roster-page">
+<script src="../assets/js/nav.js"></script>
+
+<section class="roster-cover-header" id="roster-home">
+  <div class="roster-cover-card">
+    <img class="roster-cover-image" src="../assets/img/team-banner.jpg" alt="CTX Bombers Meza roster cover photo" onerror="this.closest('.roster-cover-card').classList.add('missing-cover')">
+    <div class="roster-cover-fallback">
+      <div>
+        <strong>Bombers Fastpitch</strong>
+        <span>CTX Meza · Official Roster</span>
+      </div>
+    </div>
+  </div>
+  <div class="roster-cover-strip">
+    <p>Official Roster &nbsp;&bull;&nbsp; Player Cards &nbsp;&bull;&nbsp; Guest Players &nbsp;&bull;&nbsp; Bombers Fastpitch</p>
+  </div>
+</section>
+
+<main class="page">
+  <section class="section" id="roster">
+    <div class="section-label">Official Team Roster</div>
+    <h2>Bombers Player Cards</h2>
+    <div class="section-rule"></div>
+    <p>Player cards use image filenames from <code>assets/players/</code>. Players without a listed jersey number display as <strong>TBD</strong> until numbers are confirmed.</p>
+    <div class="roster-summary">
+      <span class="roster-summary-pill"><i class="ti ti-users"></i> 13 Players</span>
+      <span class="roster-summary-pill"><i class="ti ti-shirt-sport"></i> Jersey Numbers + TBD</span>
+      <span class="roster-summary-pill"><i class="ti ti-star"></i> 2 Guest Players</span>
+      <span class="roster-summary-pill"><i class="ti ti-photo"></i> assets/players/*.jpg</span>
+    </div>
+
+    <div class="player-card-grid" data-roster-grid>
+      <div class="doc-item">
+        <div class="doc-icon"><i class="ti ti-loader-2"></i></div>
+        <div class="doc-info"><div class="doc-name">Loading roster</div><div class="doc-desc">Building Bombers player cards...</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">B Bombers Fastpitch</div>
+  <div class="footer-links">
+    <a href="../index.html#home">HOME</a>
+    <a href="../index.html#team-info">Team Info</a>
+    <a href="./">Roster</a>
+    <a href="../index.html#schedule">Schedule</a>
+    <a href="../index.html#stats">GC Stats</a>
+    <a href="../index.html#social">Social</a>
+    <a href="../ncs-tracker/">NCS Dashboard</a>
+    <a href="../index.html#fundraising">Fundraising</a>
+  </div>
+  <p>Texas &bull; Select Fastpitch Softball</p>
+</footer>
+
+<script src="../assets/js/roster.js"></script>
+</body>
+</html>
