@@ -1,0 +1,31 @@
+name: Set Repository Topics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/set-repo-topics.yml"
+
+permissions:
+  administration: write
+
+jobs:
+  set-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set repository topics
+        run: |
+          gh api --method PUT \
+            "/repos/${{ github.repository }}/topics" \
+            --field 'names[]=next-gen-rally-os' \
+            --field 'names[]=next-gen-rally-org' \
+            --field 'names[]=rally-iq' \
+            --field 'names[]=ncs-monitor' \
+            --field 'names[]=ncs-dashboard' \
+            --field 'names[]=ncs-tournament-tracker' \
+            --field 'names[]=next-gen-team-site'
+          echo 'Topics updated.'
+        env:
+          GH_TOKEN: ${{ github.token }}
